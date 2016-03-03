@@ -18,3 +18,12 @@ run the script:
 ````
 sh misp-backup.sh
 ````
+
+Open
+====
+
+````
+    sample files
+    server certificates for sync connections
+    organisation logos (though this isn't as important, but it's still annoying to lose them)
+````
