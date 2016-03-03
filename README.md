@@ -1,5 +1,4 @@
-shell script for making a MISP backup based on 
-https://github.com/daverstephens/The-SOC-Shop/blob/master/MISP-Stuff/misp-backup.sh
+shell script for making a MISP backup
 
 Installation
 ============
@@ -26,4 +25,12 @@ Open
     sample files
     server certificates for sync connections
     organisation logos (though this isn't as important, but it's still annoying to lose them)
+
 ````
+
+
+Licence
+=======
+
+See LICENSE
+initial idea based daverstephens on https://github.com/daverstephens/The-SOC-Shop
