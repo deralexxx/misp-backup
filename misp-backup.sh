@@ -71,9 +71,10 @@ GnuPGEmail=$(sed -n -e '/GnuPG/,$p' $MISPPath/app/Config/config.php|grep -o -P "
 GnuPGHomeDir=$(grep -o -P "(?<='homedir' => ').*(?=')" $MISPPath/app/Config/config.php)
 GnuPGPass=$(grep -o -P "(?<='password' => ').*(?=')" $MISPPath/app/Config/config.php)
 # Create backup files
-mkdir /tmp/MISPBackup
-cp $GnuPGHomeDir/* /tmp/MISPBackup/
-mysqldump --opt -u $MySQLRUser -p$MySQLRPass $MISPDB > /tmp/MISPBackup/MISPbackupfile.sql
+TmpDir="$(mktemp -d)"
+cp $GnuPGHomeDir/* $TmpDir/
+mysqldump --opt -u $MySQLRUser -p$MySQLRPass $MISPDB > $TmpDir/MISPbackupfile.sql
 # Create compressed archive
-tar -zcvf $OutputDirName/$OutputFileName-$(date "+%b_%d_%Y_%H_%M_%S").tar.gz /tmp/MISPBackup
+tar -zcvf $OutputDirName/$OutputFileName-$(date "+%b_%d_%Y_%H_%M_%S").tar.gz $TmpDir
+rm -rf $TmpDir
 echo 'MISP Backup Complete!!!'
