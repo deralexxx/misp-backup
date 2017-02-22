@@ -1,5 +1,12 @@
 shell script for making a MISP backup
 
+You need to install locate on your system:
+````
+sudo apt-get install locate
+````
+
+
+
 Installation
 ============
 
